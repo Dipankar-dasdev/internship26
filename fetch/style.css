@@ -1,0 +1,29 @@
+body {
+    margin: 20px;
+    background-color: #f7fcfe;
+}
+
+h1 {
+    color: #1d1d1f;
+    font-weight: 900;
+    font-family: "Roboto Slab", Arial, sans-serif;
+}
+
+.user {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 9px;
+    background-color:#121212;
+    color: #ffffff;
+    box-shadow: 1px 1px 1px rgba(92, 86, 86, 0.3);
+}
+
+.user h2 {
+    font-family: "Roboto Slab", Arial, sans-serif;
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.user p {
+    margin: 5px 0;
+}
