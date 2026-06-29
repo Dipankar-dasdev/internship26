@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 2</title>
+    </head>
+    <body>
+        <form id="form">
+            <label>Name:</label><br>
+            <input type="text" placeholder="Enter name" id="name"><br>
+            <label>Email:</label><br>
+            <input type="email" placeholder="Enter email" id="email"><br>
+            <label>Age:</label><br>
+            <input type="number" placeholder="Enter age" id="age"><br>
+            <label>Message:</label><br>
+            <textarea name="message" placeholder="Enter your message" id="message"></textarea><br>
+            <p id="char">Characters:<span id="charCount">0 </span></p>
+            <label>Choose a language:</label><br>
+            <select id="language">
+                <option selected disabled>choose</option>
+                <option>Java</option>
+                <option>JavaScript</option>
+                <option>Python</option>
+                <option>C++</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+        <p id="msg"></p>
+        <script>
+            const form = document.getElementById('form');
+            const msg = document.getElementById('msg');
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const age = document.getElementById('age').value;
+                const message = document.getElementById('message').value;
+                const language = document.getElementById('language').value;
+
+                if (name && email && age && message && language !== 'choose') {
+                    msg.innerText = `Thank you, ${name}! Your message has been received.`;
+                    msg.style.color = 'green';
+                    form.reset();
+                } else {
+                    msg.innerText = 'Please fill in all fields.';
+                    msg.style.color = 'red';
+                }
+            });
+
+            const messageInput = document.getElementById('message');
+            const charCount = document.getElementById('charCount');
+
+            messageInput.addEventListener('input', () => {
+                charCount.innerText = messageInput.value.length;
+            });
+        </script>
+    </body>
+</html>

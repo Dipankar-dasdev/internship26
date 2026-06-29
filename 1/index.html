@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lesson1</title>
+        <style>
+            body{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: black;
+            }
+            h1{
+                color:rgb(4, 54, 169);
+                font-family: sans-serif;
+                margin-bottom: 20px;
+            }
+             p{
+                color:rgb(11, 94, 162);
+                font-family: sans-serif;
+                margin-bottom: 20px;
+            }
+             ul{
+                color:rgb(11, 199, 181);
+                font-family: sans-serif;
+                margin-bottom: 20px;
+            }
+             a{
+                color:rgb(239, 17, 184);
+                font-family: sans-serif;
+            }
+
+            .btn{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            
+            .contact-btn{
+                width: 500px;
+                transition: 0.2s;
+                background-color:#0f2594;
+                color:white;
+                padding: 8px;
+                border-radius:10px;
+                border: none;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);;
+            }
+            .bg-btn{
+                width: 500px;
+                transition: 0.2s;
+                background-color:#a712a7;
+                color:white;
+                padding: 8px;
+                border-radius:10px;
+                border: none;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);;
+            }
+            .contact-btn:hover{
+                transform: translateY(-2px);
+                cursor: pointer;
+                background-color: rgb(47, 73, 243)
+            }
+            .bg-btn:hover{
+                transform: translateY(-2px);
+                cursor: pointer;
+                background-color: rgb(232, 27, 232)
+            }
+            .stop-btn{
+                width: 500px;
+                transition: 0.2s;
+                background-color:#0f2594;
+                color:white;
+                padding: 8px;
+                border-radius:10px;
+                border: none;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .stop-btn:hover{
+                transform: translateY(-2px);
+                cursor: pointer;
+                background-color: rgb(47, 73, 243)
+            }
+
+            .add{
+                width: 500px;
+                transition: 0.2s;
+                background-color:#a712a7;
+                color:white;
+                padding: 8px;
+                border-radius:10px;
+                border: none;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .add:hover{
+                transform: translateY(-2px);
+                cursor: pointer;
+                background-color: rgb(232, 27, 232)
+            }
+
+            @media (max-width: 600px){
+
+                 h1{
+                 font-size: 28px;
+                 }
+
+                 p{
+                 font-size: 14px;
+                 }
+
+                 .bg-btn{
+                 width: 150px;
+                }
+                 .contact-btn{
+                 width: 150px;
+                 }
+                .stop-btn{
+                 width: 150px;
+                 }
+
+                .add{
+                 width: 150px;
+                }
+
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <h1>Dipankar das</h1>
+        <p>I am a student of MCA at Tezpur University currently enrolled in an internship program.</p>
+        <p>Things mentioned below are my hobbies:</p>
+        <ul class="hobbies">
+            <li>guitar</li>
+            <li>volleball</li>
+            <li>anime</li>
+        </ul><br>
+        <a href="https://www.youtube.com/?gl=IN"> Click here</a><br><br>
+        <div class="btn">
+            <button class="contact-btn">Contact</button>
+            <button class="bg-btn">Start changing Bg</button>
+            <button class="stop-btn">Stop and reset Bg</button>
+            <button class="add">Add to List</button>
+        </div>
+        <script>
+            const randomColor = function () {
+            const hex = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += hex[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            };
+
+            let intervalId;
+            const startChangingColor = function () {
+             if (!intervalId) {
+                 intervalId = setInterval(() => {
+                     document.body.style.backgroundColor = randomColor();
+                 }, 1000);
+                }
+            };
+            const stopChangingColor =  () => {
+                 clearInterval(intervalId);
+                 intervalId = null;
+                 document.body.style.backgroundColor = 'black';
+            };
+
+            document.querySelector('.bg-btn').addEventListener('click', startChangingColor);
+
+            document.querySelector('.stop-btn').addEventListener('click', stopChangingColor);
+
+            const addButton = document.querySelector('.add');
+            const hobbiesList = document.querySelector('.hobbies');
+
+            addButton.addEventListener('click', () => {
+                    const newListItem = document.createElement('li');
+                    newListItem.textContent = 'newHobby';
+                    hobbiesList.appendChild(newListItem);
+                }
+            );
+        </script>
+    </body>
+</html>
